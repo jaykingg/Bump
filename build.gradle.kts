@@ -33,6 +33,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("org.springdoc:springdoc-openapi-ui:1.5.9")
     implementation("io.jsonwebtoken:jjwt:0.9.1")
     implementation("com.sun.xml.bind:jaxb-impl")
     implementation("com.sun.xml.bind:jaxb-core")
@@ -44,6 +45,11 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
 }
+
+tasks.withType<Jar>() {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
