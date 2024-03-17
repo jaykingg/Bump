@@ -16,21 +16,19 @@ data class Account(
     @Column(unique = true)
     val accountId: String,
 
-    val nickname: String = "임시 아이디",
-
     @NotNull
-    var password: String,
+    var tokenForPassword: String,
 
     @NotNull
     val scope: Scope,
 
     @NotNull
-    val username: String,
+    val username: String? = "임시 아이디",
 
-    val instagramPictureURL: URL?,
+    val instagramPictureURL: URL? = null,
 
     @NotNull
-    val gender: Gender,
+    val gender: Gender? = null,
 
     @CreatedDate
     val createAt: Instant? = Instant.now()

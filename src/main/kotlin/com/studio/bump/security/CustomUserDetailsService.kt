@@ -12,7 +12,7 @@ class CustomUserDetailsService(private val accountRepository: AccountRepository)
         val user = accountRepository.findByAccountId(accountId)
 
         return User.withUsername(user.accountId)
-            .password(user.password)
+            .password(user.tokenForPassword)
             .authorities(emptyList())
             .accountExpired(false)
             .accountLocked(false)
