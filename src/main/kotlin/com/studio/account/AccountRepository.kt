@@ -1,4 +1,4 @@
-package com.studio.bump.Account
+package com.studio.account
 
 import org.springframework.data.jpa.repository.JpaRepository
 

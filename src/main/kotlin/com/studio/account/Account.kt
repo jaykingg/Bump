@@ -1,4 +1,4 @@
-package com.studio.bump.Account
+package com.studio.account
 
 import jakarta.persistence.*
 import jakarta.validation.constraints.NotNull
@@ -17,7 +17,7 @@ data class Account(
     val accountId: String,
 
     @NotNull
-    var tokenForPassword: String,
+    var snsTokenToPassword: String,
 
     @NotNull
     val scope: Scope,
@@ -32,5 +32,4 @@ data class Account(
 
     @CreatedDate
     val createAt: Instant? = Instant.now()
-
 )

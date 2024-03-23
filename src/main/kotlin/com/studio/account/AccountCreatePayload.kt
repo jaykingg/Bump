@@ -1,4 +1,4 @@
-package com.studio.bump.Account
+package com.studio.account
 
 import jakarta.validation.constraints.NotBlank
 
@@ -13,7 +13,5 @@ data class AccountCreatePayload(
     val scope: Scope,
 
     @field: NotBlank
-    val token: String
-
-
+    val snsTokenToPassword: String
 )

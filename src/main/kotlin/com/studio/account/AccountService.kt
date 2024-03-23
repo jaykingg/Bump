@@ -1,10 +1,11 @@
-package com.studio.bump.Account
+package com.studio.account
 
-import com.studio.bump.security.JwtUtil
+import com.studio.security.JwtUtil
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
+import java.security.Principal
 
 @Service
 class AccountService(
@@ -14,13 +15,31 @@ class AccountService(
     private val passwordEncoder: BCryptPasswordEncoder
 ) {
     fun save(payload: AccountCreatePayload): Account {
-        val encodedToken = passwordEncoder.encode(payload.token)
+        val encodedToken = passwordEncoder.encode(payload.snsTokenToPassword)
         return accountRepository.save(
             Account(
                 accountId = payload.accountId,
                 username = payload.username,
-                tokenForPassword = encodedToken,
+                snsTokenToPassword = encodedToken,
                 scope = payload.scope
+            )
+        )
+    }
+
+    fun getAccount(principal: Principal): Account {
+        return accountRepository.findByAccountId(principal.name)
+    }
+
+    fun modifyAccount(
+        payload: AccountModifyPayload,
+        principal: Principal
+    ): Account {
+        val account = accountRepository.findByAccountId(principal.name)
+        return accountRepository.save(
+            account.copy(
+                username = payload.username,
+                instagramPictureURL = payload.instagramPictureURL,
+                gender = payload.gender
             )
         )
     }
