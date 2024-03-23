@@ -10,5 +10,15 @@ spring:
     hibernate:
       ddl-auto: create
 
+
 jwt:
   secret: f64114a23bd4db865b8e969ad6e3a3e9b88c8c41f0b63c775d6af530492053dcc6d80d40d34589de3ae3d8db2b2a7b26d609d9d962af0c9c3d6a65af777d9e69
+
+# Swagger
+springdoc:
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  api-docs:
+    enabled: true
+  paths-to-match:
+    - /**

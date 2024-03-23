@@ -1,4 +1,4 @@
-package com.studio.bump.security
+package com.studio.security
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -29,8 +29,14 @@ class SecurityConfig(
 
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
+
+
         http.csrf().disable()
             .authorizeRequests()
+            .requestMatchers(
+                "/swagger-ui/**",
+                "/v3/api-docs/**"
+            ).permitAll()
             .requestMatchers("/api/account/token", "/api/account/register").permitAll()
             .requestMatchers("/api/bump/**").authenticated()
             .anyRequest().authenticated()
