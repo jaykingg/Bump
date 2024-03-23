@@ -1,6 +1,6 @@
-package com.studio.bump.Bump
+package com.studio.bump
 
-import com.studio.bump.Account.Gender
+import com.studio.account.Gender
 import java.net.URL
 
 data class Bump(

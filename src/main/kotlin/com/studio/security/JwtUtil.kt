@@ -1,4 +1,4 @@
-package com.studio.bump.security
+package com.studio.security
 
 
 import io.jsonwebtoken.Jwts

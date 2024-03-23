@@ -1,4 +1,4 @@
-package com.studio.bump
+package com.studio
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class BumpApplication
 
 fun main(args: Array<String>) {
-    runApplication<BumpApplication>(*args)
+    runApplication<com.studio.BumpApplication>(*args)
 }

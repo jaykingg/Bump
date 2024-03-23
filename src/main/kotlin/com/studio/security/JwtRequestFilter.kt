@@ -1,4 +1,4 @@
-package com.studio.bump.security
+package com.studio.security
 
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 
 @Component
-class JwtRequestFilter @Autowired constructor(private val jwtUtil: JwtUtil) : OncePerRequestFilter() {
+class JwtRequestFilter @Autowired constructor(private val jwtUtil: JwtUtil) :
+    OncePerRequestFilter() {
 
     override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain) {
         val authorizationHeader = request.getHeader("Authorization")
