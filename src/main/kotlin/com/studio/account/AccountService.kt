@@ -46,7 +46,7 @@ class AccountService(
 
     fun getAccountToken(payload: AccountTokenPayload): String {
         authenticationManager.authenticate(
-            UsernamePasswordAuthenticationToken(payload.accountId, payload.tokenForPassword)
+            UsernamePasswordAuthenticationToken(payload.accountId, payload.snsTokenToPassword)
         )
         return jwtUtil.generateToken(payload.accountId)
     }

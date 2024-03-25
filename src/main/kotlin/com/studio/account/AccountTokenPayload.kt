@@ -7,5 +7,5 @@ data class AccountTokenPayload(
     val accountId: String,
 
     @field: NotBlank
-    val tokenForPassword: String
+    val snsTokenToPassword: String
 )
